@@ -63,13 +63,13 @@ if(idAtivo==""){
 
                 retorno= JSON.parse(result)
 
-
+                $('#btn_modal').click();
                 $("#ativo").val(retorno[0]['descricaoAtivo']);
                 $("#marca").val(retorno[0]['idMarca']);
                 $("#tipo").val(retorno[0]['idTipo']);
                 $("#quantidade").val(retorno[0]['quantidadeAtivo']);
                 $("#observacao").val(retorno[0]['observacaoAtivo']);
-                $('#btn_modal').click();
+                
 
 
                        console.log(result);
