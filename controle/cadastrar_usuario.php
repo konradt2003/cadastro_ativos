@@ -1,4 +1,5 @@
 <?php
+include_once('../controle/controle_session.php');
 include('../modelo/conexao.php');
 $nome = $_POST['nome'];
 $senha = $_POST['senha'];
@@ -18,7 +19,7 @@ $query = "
                              )values(
                              '".$nome."',
                              '".$usuario."',
-                             '".$senha."',
+                             '".$senhaCrip."',
                              '".$turma."',
                              NOW()
                              )
@@ -27,7 +28,7 @@ $query = "
             $result = mysqli_query($conexao, $query) or die(false);
             if($result){
                 echo "<script> alert('usuario cadastrado')
-                                window.location.href='../visao/listar_usuarios.php';
+                                window.location.href='../visao/login.php';
                                 </script>";
             
             }else{
