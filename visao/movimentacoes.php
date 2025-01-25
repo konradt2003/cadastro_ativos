@@ -4,7 +4,7 @@ include_once("../modelo/conexao.php");
 include_once('../controle/controle_session.php');
 include_once('cabecalho.php');
 include_once('menu_superior.php');
-
+$ativos = busca_info_bd($conexao, "ativo", "statusAtivo", "S");
 $marcas = busca_info_bd($conexao, "marca");
 $tipos = busca_info_bd($conexao, "tipo");
 $sql = "SELECT 
@@ -22,13 +22,11 @@ FROM ativo a";
 $result = mysqli_query($conexao, $sql) or die(mysqli_error($conexao));
 $ativos_bd = $result->fetch_all(MYSQLI_ASSOC);
 ?>
-<script src ="../js/ativos.js"></script>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport", initial-scale=1.0>
     <title>Lista de Ativos</title>
     <style>
         .btn-modal {
@@ -48,14 +46,14 @@ $ativos_bd = $result->fetch_all(MYSQLI_ASSOC);
        }
         .container {
             margin: 20px auto;
-            max-width: 1400px;
+            /*max-width: 1400px;*/
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
         .table {
-            width: 100%;
+            /*width: 100%;*/
             border-collapse: collapse;
             text-align: center;
         }
@@ -64,32 +62,39 @@ $ativos_bd = $result->fetch_all(MYSQLI_ASSOC);
             border-bottom: 1px solid #ddd;
         }
     </style>
+
 </head>
+ 
 <body>
+
     <button 
+    
         type="button" 
         id="btn_modal"
         onclick="limpar_modal()"
         class="btn-modal" 
         data-bs-toggle="modal" 
         data-bs-target="#exampleModal"
+
     >
-        ABRIR MODAL
+    
+        CADASTRAR MOVIMENTAÇÃO
+
     </button>
     <div class="container">
         <table class="table">
             <thead>
                 <tr>
-                    <th> DESCRIÇÃO</th>
-                    <th> QUANTIDADE</th>
+                    <th> ATIVO</th>
+                    <th> USUÁRIO</th>
                     <th> TIPO</th>
-                    <th> MARCA</th>
+                    <th> QUANTIDADE</th>
                     <th> OBSERVAÇÃO</th>
                     <th> DATA CADASTRO</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($ativos_bd as $ativo): ?>
+                <?php foreach ($ativos_bd as $ativo) {?>
                     <tr>
                         <td><?= $ativo['descricaoAtivo']; ?></td>
                         <td><?= $ativo['quantidadeAtivo']; ?></td>
@@ -119,24 +124,34 @@ $ativos_bd = $result->fetch_all(MYSQLI_ASSOC);
                             <div class = "ativo" onclick="muda_status('S','<?php echo $ativo['idAtivo']; ?>')">
                             <i class="bi bi-toggle-off"></i>
                         </div>
-                      
                         <?php
-                        }
-                        
+                        }                
                         ?>
                      </div>
                      </div>
                      </td>
                     </tr>
                     
-                <?php endforeach; ?>
+                <?php } ?>
             </tbody>
         </table>
         <input type = "hidden" id="idAtivo" value="">
         
     </div>
-<?php include_once('modal_ativos.php'); ?>
+<?php include_once('modal_movimentacao.php'); ?>
    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function limpar_modal(){
+                
+                $("#ativo").val('');
+                $("#marca").val('');
+                $("#tipo").val('');
+                $("#quantidade").val('');
+                $("#observacao").val('');
+
+            }
+
+    </script>
 </body>
 </html>

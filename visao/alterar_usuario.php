@@ -13,6 +13,11 @@ foreach($info_bd as $user){
 }
 include_once('cabecalho.php')
 ?> 
+<?php if ($_SESSION['nivel_acesso'] === 'admin') { ?>
+    <td>
+        <a href="alterar_usuario.php?id_usuario=<?php echo $user['idUsuario']; ?>" class="btn btn-warning btn-sm">Editar</a>
+    </td>
+<?php } ?>
 
 <body> <!-- corpo da pagina -->
   <div class="container">
@@ -27,6 +32,7 @@ include_once('cabecalho.php')
       <input type= "text" class = "form-control" id="turma" name="turma"  required placeholder = "Informe sua Turma" value="<?php echo $turma?>">
     </div>
 <button type="submit" class="btn btn-primary"> Salvar </button>
+
   </form> 
   </div>
 </body> 

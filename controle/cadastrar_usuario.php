@@ -8,6 +8,7 @@ $turma = $_POST['turma'];
 
 
 $senhaCrip = base64_encode($senha);
+        
 
 $query = "
         INSERT INTO USUARIO (

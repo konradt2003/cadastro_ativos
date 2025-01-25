@@ -11,7 +11,8 @@
     <style>
         body {
             background-color: #1e1e2f; 
-           
+            color: white;
+            text-align: center;
         }
         .navbar {
             background-color: #000000;
@@ -23,7 +24,7 @@
             align-items: center;
         }
         .nav-link {
-            color: #a29bfe; 
+            color: #a29bfe!important; 
             padding: 0.5rem 1.5rem;
             border-radius: 20px;
             transition: color 0.3s, background-color 0.3s;
@@ -44,6 +45,14 @@
         }
         .logout-btn:hover {
             background-color: #c9302c;
+        }
+        .welcome-message {
+            margin-top: 50px;
+            font-size: 36px;
+            font-weight: bold;
+            color: #a29bfe;
+            text-shadow: 2px 2px 10px rgba(162, 155, 254, 0.8);
+            
         }
     </style>
 </head>
@@ -69,15 +78,21 @@
                         <a class="nav-link" href="ativos.php"><i class="fas fa-box"></i> Ativo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-exchange-alt"></i> Movimentação</a>
+                        <a class="nav-link" href="movimentacoes.php"><i class="fas fa-exchange-alt"></i> Movimentação</a>
                     </li>
                 </ul>
             </div>
-            <form action="../controle/logout.php" method="post" class="ms-auto">
+            <form action="login.php" method="post" class="ms-auto">
                 <button type="submit" class="logout-btn">Logout</button>
             </form>
         </div>
     </nav>
+
+    <div class="welcome-message">
+        BEM VINDOS
+     
+    
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

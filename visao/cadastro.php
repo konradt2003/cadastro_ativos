@@ -29,10 +29,7 @@ include_once('menu_superior.php');
           <input type="password" required name="senha" class="form-control" id="senha" placeholder="Informe sua senha">
         </div>
         
-        <div class="mb-4 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-          <label class="form-check-label" for="exampleCheck1">Confirmar</label>
-        </div>
+        
         
         <button type="submit" class="btn btn-primary w-100">Salvar</button>
       </form>

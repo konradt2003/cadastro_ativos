@@ -10,7 +10,8 @@ $senhaCrip = base64_encode($senha);
 
 $sql = "select 
 count(*) as quantidade, 
-idUsuario
+idUsuario,
+admin
 from  
 usuario 
 where 
@@ -23,6 +24,7 @@ if($dados['quantidade']>0){
     $_SESSION['id_user'] = $dados['idUsuario'];
     $_SESSION['login_ok']=true;
     $_SESSION['controle_login']=true;
+    $_SESSION['admin']= $dados['admin'];
     header('location:../visao/listar_usuarios.php');
 }else{
     $_SESSION['login_ok']=false;

@@ -69,7 +69,7 @@ if(idAtivo==""){
                 $("#tipo").val(retorno[0]['idTipo']);
                 $("#quantidade").val(retorno[0]['quantidadeAtivo']);
                 $("#observacao").val(retorno[0]['observacaoAtivo']);
-                
+                        
 
 
                        console.log(result);

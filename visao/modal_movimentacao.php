@@ -9,13 +9,13 @@
                 <div class="modal-body">
                     <form>
                         <div class="mb-1">
-                            <label for="ativo" class="col-form-label">Descrição Ativo</label>
+                            <label for="ativo" class="col-form-label">Ativo</label>
                             <input type="text" class="form-control" id="ativo" style="background-color: #0f0f1a; color: white; border: 1px solid #6a0dad;">
                         </div>
                         <div class="mb-1">
-                            <label for="marca" class="col-form-label">Marca</label>
-                            <select class="form-select" id="marca" style="background-color: #0f0f1a; color: white; border: 1px solid #6a0dad;">
-                                <option selected>Selecione a Marca</option>
+                            <label for="movimentacoes" class="col-form-label">Tipo de Movimentação</label>
+                            <select class="form-select" id="movimentacoes" style="background-color: #0f0f1a; color: white; border: 1px solid #6a0dad;">
+                                <option selected>Selecione</option>
                                 <?php
                                 foreach($marcas as $marca){
                                     echo '<option value="'.$marca['idMarca'].'">'.$marca['descricaoMarca'].'</option>';

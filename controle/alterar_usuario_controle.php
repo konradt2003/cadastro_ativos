@@ -20,11 +20,11 @@ where
             $result = mysqli_query($conexao, $query) or die(false);
             if($result){
                 echo "<script> alert('usuario alterado')
-                                window.location.href='../visao/listar_usuario.php';
+                                window.location.href='../visao/listar_usuarios.php';
                                 </script>";
             
             }else{
-                echo"<script> alert('Falha na alteraÃ§ÃĢo')";
+                echo"<script> alert('Falha na alteração')";
         
                  "window.location.href='../visao/alterar_usuario.php?id_usuario=$id';
                   </script>";        
